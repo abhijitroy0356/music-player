@@ -1,0 +1,153 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    font-family: 'Kanit', sans-serif;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    background-color: rgb(245, 186, 186);
+    align-items: center;
+    font-family: 'Kanit', sans-serif;
+}
+body{
+    background-color: antiquewhite;
+}
+.brand img{
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 20px;
+}
+nav ul li{
+    padding: 10px 20px;
+}
+.bottom{
+    position:relative;
+    height: 100px;
+    background-color: rgb(168, 222, 234);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    margin-top:28px;
+}
+.icons{
+    margin-top: 15px;
+}
+i{
+    margin: 0px 15px;
+}
+h1{
+    text-align: center;
+}
+.container{
+    min-height: 70vh;
+    background-color: rgb(168, 222, 234);
+    font-family: 'Kanit', sans-serif;
+    width:60%;
+    color: aliceblue;
+    font-size: 25px;
+    margin:30px auto;
+    border-radius: 20px;
+    background-image: url(https://d1csarkz8obe9u.cloudfront.net/posterpreviews/album-cover-design-template-0cc1b101a59d1ea7554694d9544decda_screen.jpg?ts=1646865861);    
+}   
+.song-progress{
+    width: 100vh;
+    text-align: center;
+}
+.song-list{
+    font-size: 15px;
+    margin: 0px 20px;
+}
+.song-item{
+    margin: 20px 0px;
+    display: flex;
+    background-color: white;
+    width: 30%;
+    color: black;
+    border-radius: 20px;
+    align-items: center;
+}
+.song-item img{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+}
+.song-item i{
+    cursor: pointer;
+}
+.song-item:hover{
+    padding:10px 20px;
+    background-color: rgb(131, 243, 239);
+    transition: 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    font-weight: bolder;
+}
+
+.single-song{
+    margin: 0px 0px;
+}
+
+.songListplay{
+    
+}
+.timestamp{
+    margin: 8px;
+}
+@media screen and (max-width:1000px) {
+    .container{
+        min-height: 70vh;
+        background-color: rgb(168, 222, 234);
+        font-family: 'Kanit', sans-serif;
+        width:60%;
+        color: aliceblue;
+        font-size: 25px;
+        margin:10px auto;
+        border-radius: 20px;
+        background-image: url(https://www.adobe.com/express/create/cover/media_1a853fd182c6e60cdbc8d24538ff63f378b5181c8.jpeg?width=400&format=jpeg&optimize=medium);    
+    }   
+    .song-item{
+    margin: 10px 0px;
+    display: flex;
+    background-color: white;
+    width: 50%;
+    color: black;
+    border-radius: 20px;
+    align-items: center;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .container{
+        min-height: 70vh;
+        background-color: rgb(168, 222, 234);
+        font-family: 'Kanit', sans-serif;
+        width:60%;
+        color: aliceblue;
+        font-size: 25px;
+        margin:10px auto;
+        border-radius: 20px;
+        background-image: url(https://www.adobe.com/express/create/cover/media_1a853fd182c6e60cdbc8d24538ff63f378b5181c8.jpeg?width=400&format=jpeg&optimize=medium);    
+    }   
+    .song-item{
+    margin: 10px 0px;
+    display: flex;
+    background-color: white;
+    width: 50%;
+    color: black;
+    border-radius: 20px;
+    align-items: center;
+    }
+}
+
