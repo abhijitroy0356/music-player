@@ -1,9 +1,20 @@
-let newAudio= new Audio('song1.mp3');
+let newAudio= new Audio('');
+const progressBar=document.querySelector('.song-progress')
+let songitem=Array.from(document.getElementsByClassName('song-item'));
+let fromListSong=Array.from(document.querySelectorAll('.songPlay'));
 const playbtn=document.getElementById('playit');
 const songs=[
-    {songNane:"noice",filepath:"",coverPath:""},
+    {songName:"song1",filepath:"songs/song1.mp3",coverPath:"https://cdns-images.dzcdn.net/images/cover/28c61a35ad7602ac7045f39c330853eb/264x264.jpg"},
+    {songName:"song2", flilepath:"songs/song2.mp3",coverPath:"https://cdns-images.dzcdn.net/images/cover/28c61a35ad7602ac7045f39c330853eb/264x264.jpg"},
+    {songName:"song3", flilepath:"songs/song3.mp3",coverPath:"https://cdns-images.dzcdn.net/images/cover/28c61a35ad7602ac7045f39c330853eb/264x264.jpg"},
+    {songName:"song4", flilepath:"songs/song4.mp3",coverPath:"https://cdns-images.dzcdn.net/images/cover/28c61a35ad7602ac7045f39c330853eb/264x264.jpg"}
 ]
 
+songitem.forEach((el,i)=>{
+    el.getElementsByTagName("img")[0].src=songs[i].coverPath;
+    el.getElementsByClassName("single-song")[0].innerText=songs[i].songName;
+    el.getElementsByClassName("timestamp")[0].innerText=songs[i].songName.duration;
+})
 let cnt=0;
 playbtn.addEventListener('click',function(){
     if(newAudio.paused || newAudio.currentTime<=0){
@@ -18,5 +29,29 @@ playbtn.addEventListener('click',function(){
     }
 })
 newAudio.addEventListener('timeupdate',function(){
-    console.log('timeupdate');
+    let ref= parseInt((newAudio.currentTime/newAudio.duration)*100);
+    progressBar.value=ref;
+})
+progressBar.addEventListener('change',()=>{
+    // progressBar.prevetdeafult();
+    newAudio.currentTime=progressBar.value*newAudio.duration/100;
+})
+const makePlays=()=>{
+    Array.from(document.getElementsByClassName('songPlay')).forEach((el)=>{
+        el.classList.add('fa-play-circle');
+        el.classList.remove('fa-pause-circle')
+    })
+}
+Array.from(document.getElementsByClassName('songPlay')).forEach((el)=>{
+    el.addEventListener('click',(e)=>{
+        makePlays();
+        newAudio.currentTime=0;
+        index=parseInt(e.target.id)
+        e.target.classList.remove('fa-play-circle');
+        e.target.classList.add('fa-pause-circle');
+        newAudio.src=`songs/song${index+1}.mp3`
+        newAudio.play();
+        playbtn.classList.remove("fa-play-circle")
+        playbtn.classList.add("fa-pause-circle")
+    })
 })
