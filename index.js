@@ -1,4 +1,7 @@
-let newAudio= new Audio('');
+let newAudio= new Audio('songs/song1.mp3');
+let index=0;
+let forwardBtn=document.getElementById('forward');
+let backwardBtn=document.getElementById('backward');
 const progressBar=document.querySelector('.song-progress')
 let songitem=Array.from(document.getElementsByClassName('song-item'));
 let fromListSong=Array.from(document.querySelectorAll('.songPlay'));
@@ -54,4 +57,31 @@ Array.from(document.getElementsByClassName('songPlay')).forEach((el)=>{
         playbtn.classList.remove("fa-play-circle")
         playbtn.classList.add("fa-pause-circle")
     })
+})
+forwardBtn.addEventListener('click',function(){
+    if(index>2){
+        index=0;
+    }else{
+        index+=1;
+    }
+    newAudio.src=`songs/song${index+1}.mp3`
+    newAudio.currentTime=0;
+    newAudio.play();
+    playbtn.classList.remove("fa-play-circle")
+    playbtn.classList.add("fa-pause-circle")
+    
+})
+backwardBtn.addEventListener('click',function(){
+    if(index==0){
+        index=3;
+    }else{
+        index--;
+    }
+    songs[index].classList.remove('fa-play-circle')
+    songs[index].classList.add('fa-pause-circle');
+    newAudio.src=`songs/song${index+1}.mp3`
+    newAudio.currentTime=0;
+    newAudio.play();
+    playbtn.classList.remove("fa-play-circle")
+    playbtn.classList.add("fa-pause-circle")
 })
